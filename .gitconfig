@@ -16,6 +16,8 @@
     ls = ls-files
 [remote "origin"]
 	url = git@github.com:jtemplet/com.astralplanelabs.cdc.pc.git
+[remote "jtemplet-dotfiles"]
+	url = git@github.com:jtemplet/dotfiles.git
 [remote "github-hinty"]
 	url = git@github.com:oshea/hinty.git
 [core]
