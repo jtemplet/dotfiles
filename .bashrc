@@ -75,7 +75,7 @@ if [ "$color_prompt" = yes ]; then
     PS1="$HC$FYEL[ $FBLE${debian_chroot:+($debian_chroot)}\u$FYEL: $FBLE\w $FYEL]\\$ $RS"
     PS2="$HC$FYEL> $RS"
 else
-    PS1="[${debian_chroot:+($debian_chroot)}\h: \w ]\\$ "
+    PS1="[${debian_chroot:+($debian_chroot)}\h: \W ]\\$ "
     PS2="> "
 fi
 unset color_prompt force_color_prompt
@@ -83,7 +83,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \W\a\]$PS1"
     ;;
 *)
     ;;
@@ -121,7 +121,7 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-PATH=$PATH:/usr/local/bin/eclipse:/var/lib/gems/1.8/bin:/var/www/3rdPartyLib/js/abbott:/opt/scala/bin
+PATH=$PATH:/usr/local/bin/eclipse:/var/lib/gems/1.8/bin:/opt/scala/bin
 #JAVA_HOME=/usr/bin/java
 export CATALINA_HOME=/usr/local/src/tomcat
 export SCALA_HOME=/opt/scala/bin
