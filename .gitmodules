@@ -1,0 +1,51 @@
+[submodule "lib/massh"]
+	path = lib/massh
+	url = http://github.com/massher/massh.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/textile.vim"]
+	path = .vim/bundle/textile.vim
+	url = git://github.com/timcharper/textile.vim.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/taglist.vim"]
+	path = .vim/bundle/taglist.vim
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule ".vim/bundle/Command-T"]
+	path = .vim/bundle/Command-T
+	url = git://github.com/wincent/Command-T.git
+[submodule ".vim/bundle/AutoComplPop"]
+	path = .vim/bundle/AutoComplPop
+	url = git://github.com/vim-scripts/AutoComplPop.git
+[submodule ".vim/bundle/bufexplorer.zip"]
+	path = .vim/bundle/bufexplorer.zip
+	url = https://github.com/vim-scripts/bufexplorer.zip
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/bundle/pylint.vim"]
+	path = .vim/bundle/pylint.vim
+	url = https://github.com/vim-scripts/pylint.vim.git
+[submodule ".vim/bundle/pyflakes-vim"]
+	path = .vim/bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule ".vim/bundle/supertab.vim"]
+	path = .vim/bundle/supertab.vim
+	url = https://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/rope-omni.vim"]
+	path = .vim/bundle/rope-omni.vim
+	url = https://github.com/rygwdn/rope-omni.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git

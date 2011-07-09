@@ -1,6 +1,9 @@
 [user]
 	name = Jason Templeton
 	email = jtemple77@gmail.com
+[github]
+	user = jtemplet
+	token = fd412aa6f0af1cee9173995a0752232a
 [apply]
 	whitespace = nowarn
 [alias]

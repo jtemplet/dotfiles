@@ -1,0 +1,9 @@
+--sort-files
+--color
+--context=1
+--follow
+--group
+#--all
+--smart-case
+--type-set
+django=.bat,.html,.js,.py,.sh,.sql,.wsgi
