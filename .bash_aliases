@@ -77,6 +77,8 @@ if [ "$LOGNAME" = jtempleton ]; then
     # UTILITIES
     alias bringalltofront='osascript $HOME/bin/bring-all-to-front'
     alias tm='/Applications/TextMate.app/Contents/MacOS/TextMate'
+
+    alias dev="cd ~/Dev/AMx_workspace/"
 fi
 
 # ---------
