@@ -121,7 +121,15 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-PATH=$PATH:/usr/local/bin/eclipse:/var/lib/gems/1.8/bin:/opt/scala/bin
+PATH=$PATH:/usr/local/bin/eclipse:/var/lib/gems/1.8/bin:/opt/scala/bin:~/scripts
 #JAVA_HOME=/usr/bin/java
 export CATALINA_HOME=/usr/local/src/tomcat
 export SCALA_HOME=/opt/scala/bin
+export PATH=${PATH}:/home/jtemplet/Development/android_workspace/android-sdk-linux_x86/tools
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PATH=$HOME/local/bin:$PATH
+export CLOJURE_EXT=~/.clojure
+PATH=$PATH:/opt/clojure/clojure-contrib/launchers/bash
+PATH=$PATH:/opt/erlang/R14B02/bin
+

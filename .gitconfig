@@ -8,18 +8,31 @@
     st = status
     ci = commit
     br = branch
-    co = checkout
     df = diff
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
     ls = ls-files
+    dump = cat-file -p
+    type = cat-file -t
 [remote "origin"]
 	url = git@github.com:jtemplet/com.astralplanelabs.cdc.pc.git
+[remote "heroku"]
+    url = git@heroku.com:cold-ice-884.git
+    fetch = +refs/heads/*:refs/remotes/heroku/*
 [remote "jtemplet-dotfiles"]
 	url = git@github.com:jtemplet/dotfiles.git
+[remote "jtemplet-scripts"]
+	url = git@github.com:jtemplet/scripts.git
 [remote "github-hinty"]
 	url = git@github.com:oshea/hinty.git
+[remote "github-tauri"]
+	url = git@github.com:jtemplet/Tauri.git
+[remote "github-words"]
+	url = git@github.com:oshea/mgf.git
+[remote "github-mat"]
+	url = git@github.com:jtemplet/laundromat.git
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [giggle]
@@ -45,3 +58,5 @@
     added = yellow
     changed = green
     untracked = cyan
+[diff]
+	external = /home/jtemplet/scripts/meld_diff.py
