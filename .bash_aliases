@@ -91,6 +91,17 @@ if [ "$LOGNAME" = jtemplet ]; then
   alias weberrors="tail /var/log/apache2/error.log"
   alias restart_apache="sudo /etc/init.d/apache2 restart"
 
+  alias weberrors="tail /var/log/apache2/error.log"
+  alias restart_apache="sudo /etc/init.d/apache2 restart"
+  alias ssh-hinty-stage="ssh -l root 184.106.147.27"
+  alias rcp_dev="cd ~/Development/rcp_workspace/"
+  alias android="cd ~/Development/android_workspace/"
+  alias dev="cd ~/Development"
+  alias words="cd ~/Development/wordsearch_game"
+  alias tauri="cd ~/Development/rails_workspace/tauri/"
+  alias laundry="cd ~/Development/rails_workspace/laundromat_service/"
+  alias music="cd ~/Media/Music"
+  alias clj='clj-env-dir'
 fi
 
 # --------------------------------------------------------------------------
