@@ -16,7 +16,7 @@
 # -------------------------------------------------------------------------
 # SHELL SETUP
 # -------------------------------------------------------------------------
-
+echo "Shell Setup"
 # bring in system bashrc
 test -r /etc/bashrc && . /etc/bashrc
       
@@ -65,7 +65,8 @@ PATH=".:$PATH"
 # -------------------------------------------------------------------------
 # ENVIRONMENT
 # -------------------------------------------------------------------------
-
+echo "Setting up environment"
+echo "Setting up virtual environment wrapper"
 # virtualenv wrapper
 if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
     test -d "$HOME/.virtualenvs" || mkdir "$HOME/.virtualenvs"
@@ -73,12 +74,12 @@ if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
     export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
     . "/usr/local/bin/virtualenvwrapper.sh"
 fi
-
+echo "Setting up git helper functions"
 # git helper functions
 if test -r "$HOME/bin/git_bashrc" ; then
     . "$HOME/bin/git_bashrc"
 fi
-
+echo "Setting up Java"
 # java & related services and utilities
 if [ "$UNAME" = Darwin ]; then
     export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
@@ -92,7 +93,7 @@ fi
 # -------------------------------------------------------------------------
 # PAGER & EDITOR
 # -------------------------------------------------------------------------
-
+echo "Setting up pager and editor"
 # EDITOR
 test -n "$(command -v vim)" && EDITOR=vim || EDITOR=vi
 export EDITOR
@@ -140,7 +141,7 @@ test -r "$HOME/bin/prompt_bashrc" && . $HOME/bin/prompt_bashrc
 # -------------------------------------------------------------------------
 # CUSTOM ALIASES FUNCTIONS
 # -------------------------------------------------------------------------
-
+echo "Setting up aliases"
 # bring in aliases
 test -r "$HOME/.bash_aliases" && . $HOME/.bash_aliases
 
@@ -194,15 +195,26 @@ export PATH="$PATH:/Library/PostgreSQL/9.0/bin"
 #export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
  
 # Env Vars
-export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
+export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
+export M2_HOME=/usr/share/maven
+export M2=$M2_HOME/bin
 
 # -------------------------------------------------------------------------
 # bring in other dev environments
 # -------------------------------------------------------------------------
-
+echo "Bringing in other envs"
 # django
 test -r "$HOME/bin/django_bash_completion" && . $HOME/bin/django_bash_completion
 
 # git
 test -r "$HOME/bin/git-completion.bash" && . $HOME/bin/git-completion.bash
+
+
+##
+# Your previous /Users/jtempleton/.bash_profile file was backed up as /Users/jtempleton/.bash_profile.macports-saved_2011-07-14_at_15:56:01
+##
+
+# MacPorts Installer addition on 2011-07-14_at_15:56:01: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
 

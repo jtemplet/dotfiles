@@ -16,7 +16,7 @@ alias c="clear"
 alias ls="ls -F"
 alias d="ls -laF"
 alias h="history"
-
+alias diffmerge="~/scripts/diffmerge.sh"
 
 # --------------------------------------------------------------------------
 # AMAZON S3 and EC2
@@ -57,11 +57,6 @@ if [ "$LOGNAME" = jtempleton ]; then
     # JAVA
     alias eclipse='$HOME/dev/eclipse/home/current/Eclipse.app/Contents/MacOS/eclipse &> /dev/null'
     
-    # MYSQL
-    test -r "/Library/LaunchDaemons/com.mysql.mysqld.plist" &&
-        alias mysqlstart='sudo launchctl start com.mysql.mysqld' &&
-        alias mysqlstop='sudo launchctl stop com.mysql.mysqld'
-    
     # TERMINAL COLORS
     alias blue='SetTerminalStyle Ocean'
     alias black='SetTerminalStyle black'
@@ -79,6 +74,12 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias tm='/Applications/TextMate.app/Contents/MacOS/TextMate'
 
     alias dev="cd ~/Dev/AMx_workspace/"
+
+    # Ace Metrix
+    alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0'
+    alias run_cas="dev;cd cas/trunk/server; mvn jetty:run"
+    alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
+    alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
 fi
 
 # ---------
