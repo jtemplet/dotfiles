@@ -187,7 +187,10 @@ if [ "$LOGNAME" = jtempleton ] && [ "$TERM_PROGRAM" = Apple_Terminal ]; then
     
 fi
 
-export PS1="\u-\W$ "
+#export PS1="\u-\W$ "
+. ~/.git-completion.bash
+#PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
+PS1='[\u-\W$(__git_ps1 "(%s)")]$ '
 export PATH="$PATH:/Library/PostgreSQL/9.0/bin"
 #export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
  
