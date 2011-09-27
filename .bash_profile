@@ -16,7 +16,6 @@
 # -------------------------------------------------------------------------
 # SHELL SETUP
 # -------------------------------------------------------------------------
-echo "Shell Setup"
 # bring in system bashrc
 test -r /etc/bashrc && . /etc/bashrc
       
@@ -93,7 +92,6 @@ fi
 # -------------------------------------------------------------------------
 # PAGER & EDITOR
 # -------------------------------------------------------------------------
-echo "Setting up pager and editor"
 # EDITOR
 test -n "$(command -v vim)" && EDITOR=vim || EDITOR=vi
 export EDITOR
@@ -141,7 +139,6 @@ test -r "$HOME/bin/prompt_bashrc" && . $HOME/bin/prompt_bashrc
 # -------------------------------------------------------------------------
 # CUSTOM ALIASES FUNCTIONS
 # -------------------------------------------------------------------------
-echo "Setting up aliases"
 # bring in aliases
 test -r "$HOME/.bash_aliases" && . $HOME/.bash_aliases
 
@@ -202,7 +199,6 @@ export M2=$M2_HOME/bin
 # -------------------------------------------------------------------------
 # bring in other dev environments
 # -------------------------------------------------------------------------
-echo "Bringing in other envs"
 # django
 test -r "$HOME/bin/django_bash_completion" && . $HOME/bin/django_bash_completion
 
