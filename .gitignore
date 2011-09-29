@@ -46,6 +46,9 @@ syntax: glob
 target
 target/
 *tar.gz
+*.iml
+java/**/target/
+flex/**/target/
 test-output
 test/output/db/*
 tmp*

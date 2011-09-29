@@ -71,6 +71,7 @@ if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
     test -d "$HOME/.virtualenvs" || mkdir "$HOME/.virtualenvs"
     export WORKON_HOME="$HOME/.virtualenvs"
     export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+    echo "Going to source virtualenvwrapper.sh"
     . "/usr/local/bin/virtualenvwrapper.sh"
 fi
 echo "Setting up git helper functions"
