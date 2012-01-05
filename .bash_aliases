@@ -4,8 +4,10 @@
 alias aliases='vi ~/.aliases && source ~/.aliases'
 alias bashrc='vi ~/.bashrc && source ~/.bashrc'
 alias ipython='ipython -automagic -nobanner'
+#alias ls='ls $LS_OPTIONS -hF'
 alias l.="ls -d .*"
-alias ll="ls -l"
+alias ll='ls $LS_OPTIONS -lhF'
+#alias l='ls $LS_OPTIONS -lAhF'
 alias ll.="ls -ld .*"
 alias mkdir='mkdir -p'
 alias rmpyc='find ./ -name "*.pyc" | xargs rm'
@@ -17,6 +19,7 @@ alias ls="ls -F"
 alias d="ls -laF"
 alias h="history"
 alias diffmerge="~/scripts/diffmerge.sh"
+alias music="cd ~/Music/iTunes/iTunes\ Media/Music/"
 
 # --------------------------------------------------------------------------
 # AMAZON S3 and EC2
@@ -24,6 +27,8 @@ alias diffmerge="~/scripts/diffmerge.sh"
 test -r "$HOME/amazon/s3/s3sync/s3sync.rb" && 
      alias s3='$HOME/amazon/s3/s3sync/s3cmd.rb'
 
+alias show_sqs_int="aws gqa /308957848663/async_queue_int --attribute All"
+alias show_sqs_qa="aws gqa /308957848663/async_queue_qa --attribute All"
 
 # --------------------------------------------------------------------------
 # GIT
@@ -77,9 +82,18 @@ if [ "$LOGNAME" = jtempleton ]; then
 
     # Ace Metrix
     alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias run_cas="dev;cd cas/trunk/server; mvn jetty:run"
+    alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
+    alias run_cas="dev;cd cas/trunk/server; mvn -o jetty:run"
+    alias cas="dev;cd cas/trunk/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
+    alias styx="cd ~/Dev/AMx_workspace/styx/java"
+    alias styxap="cd ~/Dev/AMx_acepolitics/styx/java"
+    alias basis="cd ~/Dev/AMx_workspace/basis/java"
+    alias basisap="cd ~/Dev/AMx_acepolitics/basis/java"
+    alias plat="cd ~/Dev/AMx_workspace/analysis/java"
+    alias platap="cd ~/Dev/AMx_acepolitics/analysis/java"
+    alias survey="cd ~/Dev/AMx_workspace/survey/java"
 fi
 
 # ---------

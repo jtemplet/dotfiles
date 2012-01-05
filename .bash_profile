@@ -64,8 +64,6 @@ PATH=".:$PATH"
 # -------------------------------------------------------------------------
 # ENVIRONMENT
 # -------------------------------------------------------------------------
-echo "Setting up environment"
-echo "Setting up virtual environment wrapper"
 # virtualenv wrapper
 if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
     test -d "$HOME/.virtualenvs" || mkdir "$HOME/.virtualenvs"
@@ -74,12 +72,10 @@ if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
     echo "Going to source virtualenvwrapper.sh"
     . "/usr/local/bin/virtualenvwrapper.sh"
 fi
-echo "Setting up git helper functions"
 # git helper functions
 if test -r "$HOME/bin/git_bashrc" ; then
     . "$HOME/bin/git_bashrc"
 fi
-echo "Setting up Java"
 # java & related services and utilities
 if [ "$UNAME" = Darwin ]; then
     export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
@@ -111,9 +107,21 @@ export PAGER MANPAGER
 # LS AND DIRCOLORS (from http://github.com/rtomayko/dotfiles/)
 # -------------------------------------------------------------------------
 
+# Terminal colours (after installing GNU coreutils)
+NM="\[\033[0;38m\]" #means no background and white lines
+HI="\[\033[0;37m\]" #change this for letter colors
+HII="\[\033[0;31m\]" #change this for letter colors
+SI="\[\033[0;33m\]" #this is for the current directory
+IN="\[\033[0m\]"
+
 # we always pass these to ls(1)
-LS_COMMON="--color=auto -hB"
+export LS_COMMON="--color=auto -hB"
 #LS_COMMON="-hBG"
+
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    eval `/opt/local/libexec/gnubin/dircolors ~/.dircolors`
+fi
 
 # setup the main ls alias if we've established common args
 test -n "$LS_COMMON" &&
@@ -185,15 +193,18 @@ if [ "$LOGNAME" = jtempleton ] && [ "$TERM_PROGRAM" = Apple_Terminal ]; then
             $HOME/bin/SetTerminalStyle default
         }
     }
-    
+
+    export FLASHPLAYER=/Applications/Flash\ Player\ Debugger.app/Contents/MacOS
+    export PATH=${FLASHPLAYER}:$PATH 
 fi
 
 #export PS1="\u-\W$ "
 . ~/.git-completion.bash
 #PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
-PS1='[\u-\W$(__git_ps1 "(%s)")]$ '
-export PATH="$PATH:/Library/PostgreSQL/9.0/bin"
+PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
+export PATH="$PATH:/Library/PostgreSQL/9.0/bin:/opt/local/bin:/opt/local/sbin"
 #export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
+export MANPATH=/opt/local/share/man:$MANPATH
  
 # Env Vars
 export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
@@ -218,3 +229,6 @@ test -r "$HOME/bin/git-completion.bash" && . $HOME/bin/git-completion.bash
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+alias ls='gls $LS_OPTIONS -hF'
+alias ll='gls $LS_OPTIONS -lhF'
+alias l='gls $LS_OPTIONS -lAhF'
