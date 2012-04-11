@@ -65,13 +65,13 @@ PATH=".:$PATH"
 # ENVIRONMENT
 # -------------------------------------------------------------------------
 # virtualenv wrapper
-if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
-    test -d "$HOME/.virtualenvs" || mkdir "$HOME/.virtualenvs"
-    export WORKON_HOME="$HOME/.virtualenvs"
-    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
-    echo "Going to source virtualenvwrapper.sh"
-    . "/usr/local/bin/virtualenvwrapper.sh"
-fi
+#if test -r "/usr/local/bin/virtualenvwrapper.sh" ; then
+    #test -d "$HOME/.virtualenvs" || mkdir "$HOME/.virtualenvs"
+    #export WORKON_HOME="$HOME/.virtualenvs"
+    #export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+    #echo "Going to source virtualenvwrapper.sh"
+    #. "/usr/local/bin/virtualenvwrapper.sh"
+#fi
 # git helper functions
 if test -r "$HOME/bin/git_bashrc" ; then
     . "$HOME/bin/git_bashrc"
@@ -85,6 +85,9 @@ if test -n "$(command -v pylint)" && test -r "$HOME/.pylintrc"; then
     export PYLINTRC="$HOME/.pylintrc"
 fi
 
+if test -r "$HOME/.osx" ; then
+    . "$HOME/.osx"
+fi
 
 # -------------------------------------------------------------------------
 # PAGER & EDITOR
@@ -232,3 +235,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 alias ls='gls $LS_OPTIONS -hF'
 alias ll='gls $LS_OPTIONS -lhF'
 alias l='gls $LS_OPTIONS -lAhF'
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

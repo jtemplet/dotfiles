@@ -44,6 +44,8 @@ alias gm='git merge'
 alias gp='git pull'
 alias gpp='git pull --rebase && git push'
 alias gs='git status'
+#alias gbh='git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format=\'%(refname)\' | cut -d / -f 3-'
+
 
 
 # --------------------------------------------------------------------------
@@ -60,7 +62,7 @@ alias djt='manage.py test'
 if [ "$LOGNAME" = jtempleton ]; then
     
     # JAVA
-    alias eclipse='$HOME/dev/eclipse/home/current/Eclipse.app/Contents/MacOS/eclipse &> /dev/null'
+    alias intellij='/Applications/IntelliJ\ IDEA\ 10.app/Contents/MacOS/idea'
     
     # TERMINAL COLORS
     alias blue='SetTerminalStyle Ocean'
@@ -78,12 +80,15 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias bringalltofront='osascript $HOME/bin/bring-all-to-front'
     alias tm='/Applications/TextMate.app/Contents/MacOS/TextMate'
 
-    alias dev="cd ~/Dev/AMx_workspace/"
+    alias jdev="cd ~/Dev/AMx_workspace/"
+    alias dev="cd ~/Dev"
+    alias rdev="cd ~/Dev/rails_projects"
 
     # Ace Metrix
     alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0'
+    alias mci='mvn clean install'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias run_cas="dev;cd cas/trunk/server; mvn -o jetty:run"
+    alias run_cas="dev;cd cas/server; mvn -o jetty:run"
     alias cas="dev;cd cas/trunk/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
@@ -93,7 +98,8 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias basisap="cd ~/Dev/AMx_acepolitics/basis/java"
     alias plat="cd ~/Dev/AMx_workspace/analysis/java"
     alias platap="cd ~/Dev/AMx_acepolitics/analysis/java"
-    alias survey="cd ~/Dev/AMx_workspace/survey/java"
+    alias survey="cd ~/Dev/AMx_survey/survey/java"
+    alias tools="cd ~/Dev/AMx_workspace/ace-tools"
 fi
 
 # ---------

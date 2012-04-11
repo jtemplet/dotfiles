@@ -23,11 +23,9 @@
     ls = ls-files
     dump = cat-file -p
     type = cat-file -t
+
 [push]
     default = tracking
-[remote "heroku"]
-    url = git@heroku.com:cold-ice-884.git
-    fetch = +refs/heads/*:refs/remotes/heroku/*
 [remote "jtemplet-dotfiles"]
 	url = git@github.com:jtemplet/dotfiles.git
 [remote "jtemplet-scripts"]
@@ -74,3 +72,10 @@
 	tool = diffmerge
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool]
+	keepBackup = false
+[pivotal]
+	api-token = 7df138110b993d2a0a069f44528a4a47
+	full-name = Jason Templeton
+	only-mine = true
+	project-id = 406407
