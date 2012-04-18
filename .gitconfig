@@ -21,17 +21,12 @@
     type = cat-file -t
 [remote "origin"]
 	url = git@github.com:jtemplet/com.astralplanelabs.cdc.pc.git
-[remote "heroku"]
-    url = git@heroku.com:cold-ice-884.git
-    fetch = +refs/heads/*:refs/remotes/heroku/*
 [remote "jtemplet-dotfiles"]
 	url = git@github.com:jtemplet/dotfiles.git
 [remote "jtemplet-scripts"]
 	url = git@github.com:jtemplet/scripts.git
 [remote "github-hinty"]
 	url = git@github.com:oshea/hinty.git
-[remote "github-tauri"]
-	url = git@github.com:jtemplet/Tauri.git
 [remote "github-words"]
 	url = git@github.com:oshea/mgf.git
 [remote "github-mat"]
