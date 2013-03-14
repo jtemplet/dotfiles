@@ -5,6 +5,9 @@
     pager = less -FRXS -x4
     whitespace=fix,-indent-with-non-tab,space-before-tab,trailing-space,cr-at-eol
 	excludesfile = /Users/jtempleton/.gitignore
+	trustctime = false
+[branch "master"]
+  rebase = true
 [apply]
 	whitespace = strip
 [github]
@@ -23,7 +26,8 @@
     ls = ls-files
     dump = cat-file -p
     type = cat-file -t
-
+    pom = pull origin master
+    po = pull origin
 [push]
     default = tracking
 [remote "jtemplet-dotfiles"]

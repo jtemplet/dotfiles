@@ -5,6 +5,7 @@ alias aliases='vi ~/.aliases && source ~/.aliases'
 alias bashrc='vi ~/.bashrc && source ~/.bashrc'
 alias ipython='ipython -automagic -nobanner'
 #alias ls='ls $LS_OPTIONS -hF'
+alias lsd="ls -F | egrep '/$'"
 alias l.="ls -d .*"
 alias ll='ls $LS_OPTIONS -lhF'
 #alias l='ls $LS_OPTIONS -lAhF'
@@ -20,6 +21,8 @@ alias d="ls -laF"
 alias h="history"
 alias diffmerge="~/scripts/diffmerge.sh"
 alias music="cd ~/Music/iTunes/iTunes\ Media/Music/"
+alias lb="~/scripts/list_git_branches_in_order"
+alias gomaster="core; git co master; basisd; git co master; basis; git co master; styx; git co master; plat; git co master; styx"
 
 # --------------------------------------------------------------------------
 # AMAZON S3 and EC2
@@ -88,18 +91,18 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0'
     alias mci='mvn clean install'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias run_cas="dev;cd cas/server; mvn -o jetty:run"
-    alias cas="dev;cd cas/trunk/server"
+    alias run_cas="cd ~/Dev/AMx_workspace/cas/server; mvn -o jetty:run"
+    alias cas="cd /Users/jtempleton/Dev/AMx_workspace/cas/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
-    alias styx="cd ~/Dev/AMx_workspace/styx/java"
-    alias styxap="cd ~/Dev/AMx_acepolitics/styx/java"
-    alias basis="cd ~/Dev/AMx_workspace/basis/java"
-    alias basisap="cd ~/Dev/AMx_acepolitics/basis/java"
-    alias plat="cd ~/Dev/AMx_workspace/analysis/java"
-    alias platap="cd ~/Dev/AMx_acepolitics/analysis/java"
-    alias survey="cd ~/Dev/AMx_survey/survey/java"
+    alias styx="cd ~/Dev/AMx_workspace/styx"
+    alias basis="cd ~/Dev/AMx_workspace/basis"
+    alias basisd="cd ~/Dev/AMx_workspace/basis-dal"
+    alias plat="cd ~/Dev/AMx_workspace/analysis"
+    alias survey="cd ~/Dev/AMx_workspace/survey/java"
     alias tools="cd ~/Dev/AMx_workspace/ace-tools"
+    alias core="cd ~/Dev/AMx_workspace/core_util"
+    alias ds="cd ~/Dev/AMx_workspace/dataservices"
 fi
 
 # ---------

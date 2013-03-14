@@ -47,15 +47,15 @@ fi
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 # include our ruby gems
-test -d "$HOME/.gem/ruby/1.8/bin" && PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
+#test -d "$HOME/.gem/ruby/1.8/bin" && PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
 
 # include mysql executables for custom mysql installation
-test -d "/usr/local/mysql/bin" && PATH="/usr/local/mysql/bin:$PATH"
-test -d "/usr/local/mysql/share/man" && MANPATH="/usr/local/mysql/share/man:$MANPATH"
+#test -d "/usr/local/mysql/bin" && PATH="/usr/local/mysql/bin:$PATH"
+#test -d "/usr/local/mysql/share/man" && MANPATH="/usr/local/mysql/share/man:$MANPATH"
 
 # include subversion client for custme svn installation
-test -d "/opt/subversion/bin" && PATH="/opt/subversion/bin:$PATH"
-test -d "/opt/subversion/man" && MANPATH="/opt/subversion/man:$MANPATH"
+#test -d "/opt/subversion/bin" && PATH="/opt/subversion/bin:$PATH"
+#test -d "/opt/subversion/man" && MANPATH="/opt/subversion/man:$MANPATH"
 
 # include current directory
 PATH=".:$PATH"
@@ -111,35 +111,35 @@ export PAGER MANPAGER
 # -------------------------------------------------------------------------
 
 # Terminal colours (after installing GNU coreutils)
-NM="\[\033[0;38m\]" #means no background and white lines
-HI="\[\033[0;37m\]" #change this for letter colors
-HII="\[\033[0;31m\]" #change this for letter colors
-SI="\[\033[0;33m\]" #this is for the current directory
-IN="\[\033[0m\]"
+#NM="\[\033[0;38m\]" #means no background and white lines
+#HI="\[\033[0;37m\]" #change this for letter colors
+#HII="\[\033[0;31m\]" #change this for letter colors
+#SI="\[\033[0;33m\]" #this is for the current directory
+#IN="\[\033[0m\]"
 
 # we always pass these to ls(1)
-export LS_COMMON="--color=auto -hB"
+#export LS_COMMON="--color=auto -hB"
 #LS_COMMON="-hBG"
 
-if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    eval `/opt/local/libexec/gnubin/dircolors ~/.dircolors`
-fi
+#if [ "$TERM" != "dumb" ]; then
+#    export LS_OPTIONS='--color=auto'
+#    eval `/opt/local/libexec/gnubin/dircolors ~/.dircolors`
+#fi
 
 # setup the main ls alias if we've established common args
-test -n "$LS_COMMON" &&
-    alias ls="command ls $LS_COMMON"
+#test -n "$LS_COMMON" &&
+#    alias ls="command ls $LS_COMMON"
  
 # if the dircolors utility is available, set that up to
-dircolors="$(type -P gdircolors dircolors | head -1)"
-test -n "$dircolors" && {
-    COLORS=/etc/DIR_COLORS
-    test -e "/etc/DIR_COLORS.$TERM"   && COLORS="/etc/DIR_COLORS.$TERM"
-    test -e "$HOME/.dircolors"        && COLORS="$HOME/.dircolors"
-    test ! -e "$COLORS"               && COLORS=
-    eval `$dircolors --sh $COLORS`
-}
-unset dircolors
+#dircolors="$(type -P gdircolors dircolors | head -1)"
+#test -n "$dircolors" && {
+#    COLORS=/etc/DIR_COLORS
+#    test -e "/etc/DIR_COLORS.$TERM"   && COLORS="/etc/DIR_COLORS.$TERM"
+#    test -e "$HOME/.dircolors"        && COLORS="$HOME/.dircolors"
+#    test ! -e "$COLORS"               && COLORS=
+#    eval `$dircolors --sh $COLORS`
+#}
+#unset dircolors
 
 # -------------------------------------------------------------------------
 # PROMPT HAWTNESS
@@ -205,7 +205,7 @@ fi
 . ~/.git-completion.bash
 #PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
 PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
-export PATH="$PATH:/Library/PostgreSQL/9.0/bin:/opt/local/bin:/opt/local/sbin"
+export PATH="$PATH:/Library/PostgreSQL/9.2/bin:/opt/local/bin:/opt/local/sbin"
 #export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
 export MANPATH=/opt/local/share/man:$MANPATH
  
@@ -218,7 +218,7 @@ export M2=$M2_HOME/bin
 # bring in other dev environments
 # -------------------------------------------------------------------------
 # django
-test -r "$HOME/bin/django_bash_completion" && . $HOME/bin/django_bash_completion
+#test -r "$HOME/bin/django_bash_completion" && . $HOME/bin/django_bash_completion
 
 # git
 test -r "$HOME/bin/git-completion.bash" && . $HOME/bin/git-completion.bash
@@ -229,12 +229,20 @@ test -r "$HOME/bin/git-completion.bash" && . $HOME/bin/git-completion.bash
 ##
 
 # MacPorts Installer addition on 2011-07-14_at_15:56:01: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-alias ls='gls $LS_OPTIONS -hF'
-alias ll='gls $LS_OPTIONS -lhF'
-alias l='gls $LS_OPTIONS -lAhF'
+#alias ls='gls $LS_OPTIONS -hF'
+#alias ll='gls $LS_OPTIONS -lhF'
+#alias l='gls $LS_OPTIONS -lAhF'
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+#export GROOVY_HOME=/opt/local/src/groovy_current
+#export SCALA_HOME=/opt/local/share/scala
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export HDF5_HOME=/Users/jtempleton/Dev/java_workspace/HDF5\ Experiment/lib/macosx
+export PATH=$PATH:$HDF5_HOME
+#export PATH="$PATH:$GROOVY_HOME/bin"
+export NODE_PATH=/usr/local/lib/node_modules
+export AWS_DATA_PATH=/Users/jtempleton/local/config/redshift_data
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
