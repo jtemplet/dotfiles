@@ -7,9 +7,7 @@ alias ipython='ipython -automagic -nobanner'
 #alias ls='ls $LS_OPTIONS -hF'
 alias lsd="ls -F | egrep '/$'"
 alias l.="ls -d .*"
-alias ll='ls $LS_OPTIONS -lhF'
-#alias l='ls $LS_OPTIONS -lAhF'
-alias ll.="ls -ld .*"
+alias ll='ls -lah'
 alias mkdir='mkdir -p'
 alias rmpyc='find ./ -name "*.pyc" | xargs rm'
 alias vi='vim'
@@ -25,13 +23,14 @@ alias lb="~/scripts/list_git_branches_in_order"
 alias gomaster="core; git co master; basisd; git co master; basis; git co master; styx; git co master; plat; git co master; styx"
 
 # --------------------------------------------------------------------------
-# AMAZON S3 and EC2
+# AMAZON AWS
 # --------------------------------------------------------------------------
 test -r "$HOME/amazon/s3/s3sync/s3sync.rb" && 
      alias s3='$HOME/amazon/s3/s3sync/s3cmd.rb'
 
 alias show_sqs_int="aws gqa /308957848663/async_queue_int --attribute All"
 alias show_sqs_qa="aws gqa /308957848663/async_queue_qa --attribute All"
+alias redshift="psql -h amx-respondent-data.crym73c6yx8b.us-east-1.redshift.amazonaws.com -p 5439 -U engineering respondentdata"
 
 # --------------------------------------------------------------------------
 # GIT
@@ -86,12 +85,14 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias jdev="cd ~/Dev/AMx_workspace/"
     alias dev="cd ~/Dev"
     alias rdev="cd ~/Dev/rails_projects"
+    alias pdev="cd ~/Dev/python_codes"
 
     # Ace Metrix
-    alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias mci='mvn clean install'
+    #alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0 && say \"Build Complete\" || say \"Build Failed\"'
+    alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0 -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
+    alias mci='mvn clean install -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias run_cas="cd ~/Dev/AMx_workspace/cas/server; mvn -o jetty:run"
+    alias run_cas="cd ~/Dev/AMx_workspace/cas/server; mvn -o jetty:run; say \"Cas Running\""
     alias cas="cd /Users/jtempleton/Dev/AMx_workspace/cas/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
@@ -103,6 +104,8 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias tools="cd ~/Dev/AMx_workspace/ace-tools"
     alias core="cd ~/Dev/AMx_workspace/core_util"
     alias ds="cd ~/Dev/AMx_workspace/dataservices"
+    alias dbd="cd /Users/jtempleton/Dev/AMx_workspace/docs/data"
+    alias tags="cd ~/Dev/AMx_workspace/tagmanagement"
 fi
 
 # ---------
@@ -135,4 +138,3 @@ fi
 # --------------------------------------------------------------------------
 alias jsontool='python -m json.tool'
 alias xmltool='python $HOME/bin/xmltool.py'
-

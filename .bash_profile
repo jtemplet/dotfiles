@@ -5,13 +5,25 @@
 # http://github.com/rtomayko/dotfiles/blob/rtomayko/.bashrc.  Although, 
 # I have heavily customized for my environment.
 # -------------------------------------------------------------------------
-
+HOSTNAME=Walter.Sobchak.local
 
 # -------------------------------------------------------------------------
 # SHELL VARIABLES
 # -------------------------------------------------------------------------
 
 : ${HOME=~}
+
+MAGENTA="\[\033[0;35m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[34m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+CYAN="\[\033[0;36m\]"
+GREEN="\[\033[0;32m\]"
+GIT_PS1_SHOWDIRTYSTATE=true
+export LS_OPTIONS='--color=auto'
+export CLICOLOR='Yes'
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
 
 # -------------------------------------------------------------------------
 # SHELL SETUP
@@ -78,7 +90,8 @@ if test -r "$HOME/bin/git_bashrc" ; then
 fi
 # java & related services and utilities
 if [ "$UNAME" = Darwin ]; then
-    export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+    #export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home"
 fi
 
 if test -n "$(command -v pylint)" && test -r "$HOME/.pylintrc"; then
@@ -146,7 +159,17 @@ export PAGER MANPAGER
 # -------------------------------------------------------------------------
 
 test -r "$HOME/bin/prompt_bashrc" && . $HOME/bin/prompt_bashrc
-
+#export PS1="\u-\W$ "
+. ~/.git-completion.bash
+#PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
+PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
+#export PS1=$LIGHT_GRAY"[\u@\h"'$(
+    #if [[ $(__git_ps1) =~ \*\)$ ]]
+    #then echo "'$YELLOW'"$(__git_ps1 " (%s)")
+    #elif [[ $(__git_ps1) =~ \+\)$ ]]
+    #then echo "'$MAGENTA'"$(__git_ps1 " (%s)")
+    #else echo "'$CYAN'"$(__git_ps1 " (%s)")
+    #fi)'$BLUE" \w"$GREEN"] "
 
 # -------------------------------------------------------------------------
 # CUSTOM ALIASES FUNCTIONS
@@ -204,7 +227,7 @@ fi
 #export PS1="\u-\W$ "
 . ~/.git-completion.bash
 #PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
-PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
+#PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
 export PATH="$PATH:/Library/PostgreSQL/9.2/bin:/opt/local/bin:/opt/local/sbin"
 #export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
 export MANPATH=/opt/local/share/man:$MANPATH
@@ -213,6 +236,22 @@ export MANPATH=/opt/local/share/man:$MANPATH
 export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
 export M2_HOME=/usr/share/maven
 export M2=$M2_HOME/bin
+
+
+# -------------------------------------------------------------------------
+# Growl Function
+# -------------------------------------------------------------------------
+growl() {
+      local msg="\\e]9;\n\n${*}\\007"
+      echo $TERM
+      case $TERM in
+        screen*)
+          echo -ne '\eP'${msg}'\e\\' ;;
+        *)
+          echo -ne ${msg} ;;
+      esac
+      return
+}
 
 # -------------------------------------------------------------------------
 # bring in other dev environments
@@ -235,7 +274,8 @@ export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
 #alias ls='gls $LS_OPTIONS -hF'
 #alias ll='gls $LS_OPTIONS -lhF'
 #alias l='gls $LS_OPTIONS -lAhF'
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home"
+#export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 #export GROOVY_HOME=/opt/local/src/groovy_current
 #export SCALA_HOME=/opt/local/share/scala
 
