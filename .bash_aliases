@@ -90,6 +90,7 @@ if [ "$LOGNAME" = jtempleton ]; then
     # Ace Metrix
     #alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0 && say \"Build Complete\" || say \"Build Failed\"'
     alias mis='mvn clean install -DskipTests=true -DcoberturaThreshold=0 -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
+    alias mism='mvn clean install -DskipTests=true -DcoberturaThreshold=0 -Dmigrate=true -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mci='mvn clean install -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
     alias run_cas="cd ~/Dev/AMx_workspace/cas/server; mvn -o jetty:run; say \"Cas Running\""
@@ -106,6 +107,9 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias ds="cd ~/Dev/AMx_workspace/dataservices"
     alias dbd="cd /Users/jtempleton/Dev/AMx_workspace/docs/data"
     alias tags="cd ~/Dev/AMx_workspace/tagmanagement"
+    alias esp="cd ~/Dev/AMx_workspace/espresso"
+    alias smaug="cd ~/Dev/AMx_workspace/smaug"
+    alias snake="cd ~/Dev/AMx_ui/snake"
 fi
 
 # ---------

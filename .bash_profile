@@ -72,7 +72,6 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 # include current directory
 PATH=".:$PATH"
 
-
 # -------------------------------------------------------------------------
 # ENVIRONMENT
 # -------------------------------------------------------------------------
@@ -233,6 +232,7 @@ export PATH="$PATH:/Library/PostgreSQL/9.2/bin:/opt/local/bin:/opt/local/sbin"
 export MANPATH=/opt/local/share/man:$MANPATH
  
 # Env Vars
+#export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
 export M2_HOME=/usr/share/maven
 export M2=$M2_HOME/bin
@@ -284,5 +284,7 @@ export PATH=$PATH:$HDF5_HOME
 #export PATH="$PATH:$GROOVY_HOME/bin"
 export NODE_PATH=/usr/local/lib/node_modules
 export AWS_DATA_PATH=/Users/jtempleton/local/config/redshift_data
+
+export PATH=$PATH:$HOME/.rvm/bin:/opt/local/bin:$M2_HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.

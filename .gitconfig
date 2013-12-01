@@ -40,8 +40,6 @@
 	url = git@github.com:jtemplet/Tauri.git
 [remote "github-words"]
 	url = git@github.com:oshea/mgf.git
-[remote "github-mat"]
-	url = git@github.com:jtemplet/laundromat.git
 
 [giggle]
 	main-window-maximized = false
