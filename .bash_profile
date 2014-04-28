@@ -288,3 +288,5 @@ export AWS_DATA_PATH=/Users/jtempleton/local/config/redshift_data
 export PATH=$PATH:$HOME/.rvm/bin:/opt/local/bin:$M2_HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+
+[ -s "/Users/jtempleton/.nvm/nvm.sh" ] && . "/Users/jtempleton/.nvm/nvm.sh" # This loads nvm

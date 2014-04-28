@@ -93,7 +93,7 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias mism='mvn clean install -DskipTests=true -DcoberturaThreshold=0 -Dmigrate=true -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mci='mvn clean install -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
-    alias run_cas="cd ~/Dev/AMx_workspace/cas/server; mvn -o jetty:run; say \"Cas Running\""
+    alias run_cas="cd ~/Dev/AMx_workspace/cas; mvn -o jetty:run"
     alias cas="cd /Users/jtempleton/Dev/AMx_workspace/cas/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
@@ -110,6 +110,8 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias esp="cd ~/Dev/AMx_workspace/espresso"
     alias smaug="cd ~/Dev/AMx_workspace/smaug"
     alias snake="cd ~/Dev/AMx_ui/snake"
+    alias subzero="cd ~/Dev/AMx_ui/subzero"
+    alias util="cd ~/Dev/AMx_ui/subzero-util"
 fi
 
 # ---------
@@ -142,3 +144,8 @@ fi
 # --------------------------------------------------------------------------
 alias jsontool='python -m json.tool'
 alias xmltool='python $HOME/bin/xmltool.py'
+
+# --------------------------------------------------------------------------
+# Node.js
+# --------------------------------------------------------------------------
+#alias node='node --harmony'

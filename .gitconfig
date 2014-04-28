@@ -28,6 +28,8 @@
     type = cat-file -t
     pom = pull origin master
     po = pull origin
+	update = "!git remote update -p"
+	up = pull --ff-only -p
 [push]
     default = tracking
 [remote "jtemplet-dotfiles"]
