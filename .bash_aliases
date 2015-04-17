@@ -21,6 +21,7 @@ alias diffmerge="~/scripts/diffmerge.sh"
 alias music="cd ~/Music/iTunes/iTunes\ Media/Music/"
 alias lb="~/scripts/list_git_branches_in_order"
 alias gomaster="core; git co master; basisd; git co master; basis; git co master; styx; git co master; plat; git co master; styx"
+alias packgit="git repack -a -d --depth=500 --window=1000 -f"
 
 # --------------------------------------------------------------------------
 # AMAZON AWS
@@ -82,7 +83,6 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias bringalltofront='osascript $HOME/bin/bring-all-to-front'
     alias tm='/Applications/TextMate.app/Contents/MacOS/TextMate'
 
-    alias jdev="cd ~/Dev/AMx_workspace/"
     alias dev="cd ~/Dev"
     alias rdev="cd ~/Dev/rails_projects"
     alias pdev="cd ~/Dev/python_codes"
@@ -94,24 +94,18 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias mci='mvn clean install -Dmaven.clean.failOnError=true && say \"Build Complete\" || say \"Build Failed\"'
     alias mois='mvn -o clean install -DskipTests=true -DcoberturaThreshold=0'
     alias run_cas="cd ~/Dev/AMx_workspace/cas; mvn -o jetty:run"
-    alias cas="cd /Users/jtempleton/Dev/AMx_workspace/cas/server"
     alias run_main="dev; cd analysis/java/analysis-webapp; mvn jetty:run-exploded -DskipTests=true -DcoberturaThreshold=0"
     alias run_styx="dev; cd styx/java/styx-webapp; mvn jetty:run"
-    alias styx="cd ~/Dev/AMx_workspace/styx"
-    alias basis="cd ~/Dev/AMx_workspace/basis"
-    alias basisd="cd ~/Dev/AMx_workspace/basis-dal"
-    alias plat="cd ~/Dev/AMx_workspace/analysis"
-    alias survey="cd ~/Dev/AMx_workspace/survey/java"
-    alias tools="cd ~/Dev/AMx_workspace/ace-tools"
-    alias core="cd ~/Dev/AMx_workspace/core_util"
-    alias ds="cd ~/Dev/AMx_workspace/dataservices"
-    alias dbd="cd /Users/jtempleton/Dev/AMx_workspace/docs/data"
-    alias tags="cd ~/Dev/AMx_workspace/tagmanagement"
-    alias esp="cd ~/Dev/AMx_workspace/espresso"
-    alias smaug="cd ~/Dev/AMx_workspace/smaug"
+    alias core="cd ~/Dev/AMx_core/"
     alias snake="cd ~/Dev/AMx_ui/snake"
     alias subzero="cd ~/Dev/AMx_ui/subzero"
+
+    alias phx="cd ~/Dev/AMx_ui/phoenix"
+    alias 2up="cd ~/Dev/AMx_ui/2up"
     alias util="cd ~/Dev/AMx_ui/subzero-util"
+    alias node-dev="cd ~/Dev/Nodejs_Workspace"
+    alias concas="cd ~/Dev/AMx_ui/connect-cas"
+    alias necro="cd /Users/jtempleton/Dev/AMx_python/necromancer"
 fi
 
 # ---------
@@ -144,7 +138,7 @@ fi
 # --------------------------------------------------------------------------
 alias jsontool='python -m json.tool'
 alias xmltool='python $HOME/bin/xmltool.py'
-
+alias html='cd ~/Dev/ui'
 # --------------------------------------------------------------------------
 # Node.js
 # --------------------------------------------------------------------------

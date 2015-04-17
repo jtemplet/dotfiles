@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set architecture flags
+export ARCHFLAGS="-arch x86_64"
+
 # -------------------------------------------------------------------------
 # This is my .bashrc, a lot of the format and ideas were borrowed from
 # http://github.com/rtomayko/dotfiles/blob/rtomayko/.bashrc.  Although, 
@@ -24,6 +27,14 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+ # Env Vars
+#export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
+export M2_HOME=/usr/share/maven
+export M2=$M2_HOME/bin
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home"
+export AWS_DATA_PATH=/Users/jtempleton/local/config/redshift_data
+export NODE_PATH=/usr/local/lib/node_modules:/usr/local/share/npm/lib/node_modules
 
 # -------------------------------------------------------------------------
 # SHELL SETUP
@@ -42,6 +53,11 @@ umask 0022
 # PATH & MANPATH
 # -------------------------------------------------------------------------
 
+# Add psql to path
+export PATH="$PATH:/Library/PostgreSQL/9.2/bin:/opt/local/bin:/opt/local/sbin"
+
+export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
+
 # usr/local/sbin
 test -d "/usr/local/sbin" && PATH="$PATH:/usr/local/sbin"
 
@@ -54,6 +70,8 @@ else
     test -d "/opt/local/sbin" && PATH="/opt/local/sbin:$PATH"
     test -d "/opt/local/share/man" && MANPATH="/opt/local/share/man:$MANPATH"
 fi
+
+export MANPATH=/opt/local/share/man:$MANPATH
 
 # include our custom scripts
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
@@ -170,12 +188,6 @@ PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
     #else echo "'$CYAN'"$(__git_ps1 " (%s)")
     #fi)'$BLUE" \w"$GREEN"] "
 
-# -------------------------------------------------------------------------
-# CUSTOM ALIASES FUNCTIONS
-# -------------------------------------------------------------------------
-# bring in aliases
-test -r "$HOME/.bash_aliases" && . $HOME/.bash_aliases
-
 # markdown
 function md {
     now=`date +"%Y%m%d-%H%M%S"`
@@ -196,6 +208,25 @@ push_ssh_cert(){
         echo $_host
         ssh $_host 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_dsa.pub
     done
+}
+
+docker-ip() {
+  boot2docker ip 2> /dev/null
+}
+
+# -------------------------------------------------------------------------
+# Growl Function
+# -------------------------------------------------------------------------
+growl() {
+      local msg="\\e]9;\n\n${*}\\007"
+      echo $TERM
+      case $TERM in
+        screen*)
+          echo -ne '\eP'${msg}'\e\\' ;;
+        *)
+          echo -ne ${msg} ;;
+      esac
+      return
 }
 
 # OSX specific functions
@@ -223,70 +254,24 @@ if [ "$LOGNAME" = jtempleton ] && [ "$TERM_PROGRAM" = Apple_Terminal ]; then
     export PATH=${FLASHPLAYER}:$PATH 
 fi
 
-#export PS1="\u-\W$ "
 . ~/.git-completion.bash
-#PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
-#PS1='[ \u \W$(__git_ps1 "(%s)") \D{%I:%M} ] '
-export PATH="$PATH:/Library/PostgreSQL/9.2/bin:/opt/local/bin:/opt/local/sbin"
-#export PATH="$PATH:/Applications/Flash Player.app/Contents/MacOS"
-export MANPATH=/opt/local/share/man:$MANPATH
  
-# Env Vars
-#export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
-export MAVEN_OPTS="-Xmx1536M -XX:MaxPermSize=256M -Dsun.lang.ClassLoader.allowArraySyntax=true"
-export M2_HOME=/usr/share/maven
-export M2=$M2_HOME/bin
-
-
-# -------------------------------------------------------------------------
-# Growl Function
-# -------------------------------------------------------------------------
-growl() {
-      local msg="\\e]9;\n\n${*}\\007"
-      echo $TERM
-      case $TERM in
-        screen*)
-          echo -ne '\eP'${msg}'\e\\' ;;
-        *)
-          echo -ne ${msg} ;;
-      esac
-      return
-}
-
 # -------------------------------------------------------------------------
 # bring in other dev environments
 # -------------------------------------------------------------------------
-# django
-#test -r "$HOME/bin/django_bash_completion" && . $HOME/bin/django_bash_completion
 
 # git
 test -r "$HOME/bin/git-completion.bash" && . $HOME/bin/git-completion.bash
 
+# -------------------------------------------------------------------------
+# CUSTOM ALIASES FUNCTIONS
+# -------------------------------------------------------------------------
+# bring in aliases
+test -r "$HOME/.bash_aliases" && . $HOME/.bash_aliases
 
-##
-# Your previous /Users/jtempleton/.bash_profile file was backed up as /Users/jtempleton/.bash_profile.macports-saved_2011-07-14_at_15:56:01
-##
 
-# MacPorts Installer addition on 2011-07-14_at_15:56:01: adding an appropriate PATH variable for use with MacPorts.
-export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-#alias ls='gls $LS_OPTIONS -hF'
-#alias ll='gls $LS_OPTIONS -lhF'
-#alias l='gls $LS_OPTIONS -lAhF'
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home"
-#export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
-#export GROOVY_HOME=/opt/local/src/groovy_current
-#export SCALA_HOME=/opt/local/share/scala
-
-export HDF5_HOME=/Users/jtempleton/Dev/java_workspace/HDF5\ Experiment/lib/macosx
-export PATH=$PATH:$HDF5_HOME
-#export PATH="$PATH:$GROOVY_HOME/bin"
-export NODE_PATH=/usr/local/lib/node_modules
-export AWS_DATA_PATH=/Users/jtempleton/local/config/redshift_data
-
-export PATH=$PATH:$HOME/.rvm/bin:/opt/local/bin:$M2_HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
-
+# rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
-[ -s "/Users/jtempleton/.nvm/nvm.sh" ] && . "/Users/jtempleton/.nvm/nvm.sh" # This loads nvm
+# nvm
+#[ -s "/Users/jtempleton/.nvm/nvm.sh" ] && . "/Users/jtempleton/.nvm/nvm.sh" # This loads nvm
