@@ -105,7 +105,7 @@ if [ "$LOGNAME" = jtempleton ]; then
     alias util="cd ~/Dev/AMx_ui/subzero-util"
     alias node-dev="cd ~/Dev/Nodejs_Workspace"
     alias concas="cd ~/Dev/AMx_ui/connect-cas"
-    alias necro="cd /Users/jtempleton/Dev/AMx_python/necromancer"
+    alias babel="cd /Users/jtempleton/Dev/AMx_python/babel"
 fi
 
 # ---------
