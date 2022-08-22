@@ -1,12 +1,18 @@
+call plug#begin('~/.vim/plugged')
+  Plug 'ayu-theme/ayu-vim' " 
+  Plug 'NLKNguyen/papercolor-theme'
+call plug#end()
+
 " enable syntax highlighting
 syntax on
 
-
 " setup correct spacing and tab widths
-set expandtab                   " expand tabs to spaces
-set softtabstop=4               " 4 spaces
-set shiftwidth=4                " 4 sapces
-set tabstop=4                   " 4 spaces
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+
 "set autoindent                 " automatic indent new lines
 "set smartindent                
 
@@ -29,8 +35,13 @@ abbreviate teh the
 
 
 " change the color scheme to something i like
-colors desert
-
+set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+set background=dark
+colorscheme PaperColor
 
 " more nifty ux settings
 set ruler               " always show cursor

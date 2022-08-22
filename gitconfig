@@ -1,0 +1,58 @@
+[user]
+	name = Jason Templeton
+	email = jtemple77@gmail.com
+[github]
+	user = jtemplet
+	token = fd412aa6f0af1cee9173995a0752232a
+[apply]
+	whitespace = nowarn
+[alias]
+	co = checkout
+	st = status
+  ci = commit
+  cm = "commit -m"
+  br = branch
+  df = diff
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+  ls = ls-files
+  dump = cat-file -p
+  type = cat-file -t
+  pf = push --force-with-lease
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[fetch]
+  prune = true
+[color]
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
