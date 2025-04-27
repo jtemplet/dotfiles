@@ -54,3 +54,15 @@ tmp*
 !.vimrc
 !.bashrc
 !.bash_aliases
+*.xcscmblueprint
+xcuserdata/
+*.xccheckout
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+.vscode
+.idea
+coverage/*
+.cursorrules
