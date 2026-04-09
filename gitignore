@@ -66,3 +66,15 @@ xcuserdata/
 .idea
 coverage/*
 .cursorrules
+.clinerules
+.claude/CLAUDE.md
+app/.claude/settings.local.json
+.github/.claude/settings.local.json
+app/lib/haml_tailwind_sorter.rb
+app/docs/plans/*
+app/docs/code-reviews/*
+app/docs/issues/*
+storage
+app/history/*
+history/
+.claude/
