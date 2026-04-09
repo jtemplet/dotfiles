@@ -19,6 +19,13 @@ export default {
         name: "Google Chrome",
         args: ["--profile-directory=Profile 1"]
       }
+    },
+    {
+      match: (url) => /^www\.pr-.*\.staging\.loanos\.net$/.test(url.hostname),
+      browser: {
+        name: "Google Chrome",
+        args: ["--profile-directory=Profile 1"]
+      }
     }
   ]
 }
