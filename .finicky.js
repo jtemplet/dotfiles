@@ -17,14 +17,14 @@ export default {
       match: "https://d-9267aae176.awsapps.com/start/*",
       browser: {
         name: "Google Chrome",
-        args: ["--profile-directory=Profile 1"]
+        profile: "Profile 1"
       }
     },
     {
-      match: (url) => /^www\.pr-.*\.staging\.loanos\.net$/.test(url.hostname),
+      match: (url) => /^www\.pr-.*\.staging\.loanos\.net$/.test(url.host),
       browser: {
         name: "Google Chrome",
-        args: ["--profile-directory=Profile 1"]
+        profile: "Profile 1"
       }
     }
   ]
