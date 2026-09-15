@@ -1,6 +1,6 @@
 [user]
 	name = Jason Templeton
-	email = jtemple77@gmail.com
+	email = jason@loanlabs.ai
 [github]
 	user = jtemplet
 [credential]
@@ -31,8 +31,9 @@
 	cob = checkout -b
 [core]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/jtempleton/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vi
+	pager = delta
 [fetch]
 	prune = true
 [color]
@@ -53,6 +54,7 @@
   	untracked = cyan
 [diff]
   	tool = meld
+	colorMoved = default
 [difftool]
  	prompt = false
 [difftool "meld"]
@@ -60,6 +62,7 @@
   	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
 [merge]
   	tool = meld
+	conflictstyle = diff3
 [mergetool]
   	prompt = false
 [mergetool "meld"]
@@ -77,4 +80,15 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/jtempleton/.stCommitMsg
+	template = ~/.stCommitMsg
+[delta]
+	side-by-side = true
+	line-numbers = true
+	navigate = true
+	syntax-theme = Monokai Extended
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
